@@ -1,0 +1,16 @@
+[Unit]
+Description=Phantom Controller Pi Backend
+After=network.target
+
+[Service]
+Type=simple
+User=noktirnal
+Group=noktirnal
+WorkingDirectory=/home/noktirnal/phantom/pi-backend
+ExecStart=/home/noktirnal/phantom/bin/python -m uvicorn server:app --host 0.0.0.0 --port 8080 --ws-ping-interval 10 --ws-ping-timeout 30
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

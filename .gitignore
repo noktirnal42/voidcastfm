@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# Logs
+*.log
+logs/
+
+# Environment
+.env
+.env.local
+.env.*.local
+*.local
+
+# Secrets (should not be committed)
+secrets.json
+config.json
+*.pem
+*.key
+*.cert
+
+# Build outputs
+release/
+*.dmg
+*.app
+
+# Temporary
+tmp/
+temp/
+*.tmp
+
+# Test coverage
+coverage/
+.nyc_output/
