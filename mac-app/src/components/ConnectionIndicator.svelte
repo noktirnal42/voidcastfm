@@ -53,11 +53,13 @@
 
     <div class="link-details">
       <span class="link-state">{connected ? 'CONNECTED' : 'DISCONNECTED'}</span>
-      <span class="link-target">{settings.get('piHost') || 'not configured'}:{settings.get('piPort') || 8080}</span>
+      <span class="link-target">
+        {settings.get('piHost') ? `${settings.get('piHost')}:${settings.get('piPort')}` : '⚠️ Configure in Settings'}
+      </span>
       {#if pingMs !== null}
         <span class="link-ping" style="color: {pingColor(pingMs)}">{pingMs}ms</span>
       {:else}
-        <span class="link-ping" style="color: rgba(255,60,60,0.4)">—</span>
+        <span class="link-ping" style="color: rgba(255,60,60,0.4)">{connected ? '—' : 'Click ⚙️ to configure'}</span>
       {/if}
     </div>
   </div>

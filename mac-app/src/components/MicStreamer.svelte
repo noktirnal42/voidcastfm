@@ -1,5 +1,5 @@
 <script>
-  import { api } from '../lib/api.js';
+  import { api, settings } from '../lib/api.js';
 let { connected, txStatus } = $props();
 
   let isStreaming = $state(false);
@@ -52,11 +52,11 @@ let { connected, txStatus } = $props();
     </div>
   </div>
 
-  {#if isStreaming}
-    <div class="stream-info">
-      <div class="stream-cmd">ffmpeg -f avfoundation -i ":0" -f s16le -ar 44100 -ac 1 udp://192.168.1.25:{port}</div>
-    </div>
-  {/if}
+{#if isStreaming}
+  <div class="stream-info">
+    <div class="stream-cmd">ffmpeg -f avfoundation -i ":0" -f s16le -ar 44100 -ac 1 udp://{settings.get('piHost') || 'pi0.local'}:{port}</div>
+  </div>
+{/if}
 
   <div class="action-row">
     {#if !isStreaming}

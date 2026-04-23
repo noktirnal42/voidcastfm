@@ -1,5 +1,5 @@
 <script>
-  import { api } from '../lib/api.js';
+  import { api, settings } from '../lib/api.js';
   import { formatFreq } from '../lib/frequency.js';
 
   let { connected, txStatus } = $props();
@@ -13,12 +13,13 @@
 
   // Auto-update commands when params change
   $effect(() => {
+    const piHost = settings.get('piHost') || 'pi0.local';
     // Mac command to capture system audio and send to Pi
     // Uses BlackHole (virtual audio driver) or Soundflower
-    streamCommand = `ffmpeg -f avfoundation -i ":0" -f s16le -ar 44100 -ac 1 udp://192.168.1.25:${port}`;
+    streamCommand = `ffmpeg -f avfoundation -i ":0" -f s16le -ar 44100 -ac 1 udp://${piHost}:${port}`;
 
     // Alternative using Soundflower/BlackHole with loopback
-    ffplayCommand = `ffplay -nodisp -ar 44100 -ac 1 -f s16le udp://192.168.1.25:${port}`;
+    ffplayCommand = `ffplay -nodisp -ar 44100 -ac 1 -f s16le udp://${piHost}:${port}`;
   });
 
   const PRESETS = [

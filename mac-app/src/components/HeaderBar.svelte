@@ -24,7 +24,7 @@
   </div>
 
   <div class="header-actions">
-    <button class="settings-btn" onclick={onOpenSettings?.()} title="Settings">
+    <button class="settings-btn" onclick={() => onOpenSettings?.()} title="Settings">
       ⚙️
     </button>
     <div class="header-stats">

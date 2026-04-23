@@ -5,10 +5,10 @@
  */
 
 const DEFAULTS = {
-  piHost: '',
-  piPort: 8080,
-  sshUser: 'pi',
-  sshPassword: '', // Not stored - user must enter each session
+  piHost: '',              // Empty - user must configure
+  piPort: 8080,            // Default backend port (standard)
+  sshUser: 'pi',           // Common default Pi username
+  sshPassword: '',         // Not stored - user must enter each session
   autoReconnect: true,
   reconnectInterval: 5000,
 };

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>Test Settings</title></head>
+<body>
+<h1>Testing Settings Modal</h1>
+<p>Open browser console (F12)</p>
+<div id="test"></div>
+<script type="module">
+import { mount } from 'svelte';
+import Settings from './src/components/Settings.svelte';
+
+let show = true;
+const target = document.getElementById('test');
+const instance = mount(Settings, { target, props: { onClose: () => { console.log('Closed!'); show = false; } } });
+</script>
+</body>
+</html>

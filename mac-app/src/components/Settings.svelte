@@ -13,6 +13,15 @@
   let testing = $state(false);
 
   function saveSettings() {
+    // Validate before saving
+    if (!piHost || piHost.trim() === '') {
+      testStatus = {
+        success: false,
+        message: '⚠️ Please enter a Pi hostname or IP address before saving'
+      };
+      return;
+    }
+    
     settings.set('piHost', piHost);
     settings.set('piPort', parseInt(piPort) || 8080);
     settings.set('sshUser', sshUser);
@@ -37,17 +46,52 @@
     testing = true;
     testStatus = null;
     
+    // Get current values from form (not from settings, in case user changed them but didn't save)
+    const host = piHost;
+    const port = piPort;
+    
+    if (!host || host.trim() === '') {
+      testStatus = {
+        success: false,
+        message: 'Please enter a Pi hostname or IP address'
+      };
+      testing = false;
+      return;
+    }
+    
+    console.log(`Testing connection to ${host}:${port}...`);
+    
     try {
-      const response = await fetch(`${api.baseUrl}/`, {
+      // Build URL directly from form values for testing
+      const url = `http://${host}:${port}/`;
+      console.log(`Fetching: ${url}`);
+      
+      // Test the specific host:port, not the saved settings
+      const response = await fetch(url, {
         method: 'GET',
         signal: AbortSignal.timeout(5000)
       });
+      
+      console.log(`Response status: ${response.status}`);
+      
+      // Check if response is JSON
+      const contentType = response.headers.get('content-type');
+      console.log(`Content-Type: ${contentType}`);
+      
+      if (!contentType || !contentType.includes('application/json')) {
+        testStatus = {
+          success: false,
+          message: `Server responded but not with JSON. Make sure VoidCastFM backend is running on ${host}:${port}`
+        };
+        testing = false;
+        return;
+      }
       
       if (response.ok) {
         const data = await response.json();
         testStatus = {
           success: true,
-          message: `Connected to ${data.name || 'Pi'} v${data.version || '?'}`,
+          message: `✅ Connected to ${data.name || 'Pi'} v${data.version || '?'}`,
           details: data
         };
       } else {
@@ -57,11 +101,16 @@
         };
       }
     } catch (error) {
+      console.error('Connection test failed:', error);
+      let msg = error.message;
+      if (error.name === 'AbortError') {
+        msg = 'Connection timeout (5s) - Pi not reachable';
+      } else if (msg.includes('Failed to fetch')) {
+        msg = `Cannot connect to ${host}:${port} - Check if Pi is on same network`;
+      }
       testStatus = {
         success: false,
-        message: error.name === 'AbortError' 
-          ? 'Connection timeout (5s)' 
-          : `Error: ${error.message}`
+        message: msg
       };
     } finally {
       testing = false;
@@ -69,11 +118,11 @@
   }
 </script>
 
-<div class="modal-overlay" onclick={onClose}>
+<div class="modal-overlay" onclick={() => onClose?.()}>
   <div class="modal-content" onclick={e => e.stopPropagation()}>
     <div class="modal-header">
       <h2>⚙️ Connection Settings</h2>
-      <button class="close-btn" onclick={onClose}>×</button>
+      <button class="close-btn" onclick={() => onClose?.()}>×</button>
     </div>
 
     <div class="modal-body">
@@ -92,7 +141,9 @@
             bind:value={piHost}
             placeholder="e.g., 192.168.1.25 or pi0.local"
           />
-          <span class="form-help">Current: {settings.get('piHost') || 'not set'}</span>
+          <span class="form-help">
+            {piHost ? `Current: ${piHost}` : '⚠️ Required: Enter your Pi\'s IP address'}
+          </span>
         </div>
 
         <div class="form-group">
