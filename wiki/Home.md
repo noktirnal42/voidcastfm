@@ -1,82 +1,56 @@
 # Welcome to the VoidCastFM Wiki
 
-This is the community knowledge base for VoidCastFM - the professional SDR transmitter control station.
+The community knowledge base for VoidCastFM - Professional SDR Transmitter Control.
 
 ## Getting Started
 
-- **[Home Page](https://github.com/noktirnal42/voidcastfm)** - Main repository
-- **[Documentation](https://noktirnal42.github.io/voidcastfm/)** - Official docs
-- **[Discussions](https://github.com/noktirnal42/voidcastfm/discussions)** - Community forum
-- **[Issues](https://github.com/noktirnal42/voidcastfm/issues)** - Bug reports
+- [[Quick-Start-Guide|⚡ Quick Start]] - Get transmitting in 5 minutes
+- [[Installation|📦 Installation]] - Complete setup guide
+- [[Configuration|⚙️ Configuration]] - Settings and customization
 
-## Contents
+## User Guides
 
-### User Guides
-- [[Quick Start Guide]] - Get transmitting in 5 minutes
-- [[Installation Guide]] - Complete setup instructions
-- [[Configuration Guide]] - Settings and customization
-- [[Transmission Modes]] - FM, AM, SSB, VFO, Chirp, IQ explained
-- [[Audio Streaming]] - Live microphone and system audio
+- [[Transmission-Modes|📡 Modes]] - FM, AM, SSB, VFO, Chirp, IQ
+- [[Audio-Streaming|🎤 Streaming]] - Live microphone & system audio
+- [[Soundboard|🚨 Alerts]] - Emergency tone library
+- [[File-Playback|🎵 Files]] - Upload and transmit audio
 
-### Technical
-- [[API Reference]] - Backend REST API documentation
-- [[Hardware Requirements]] - Compatible devices
-- [[Network Setup]] - Network configuration
-- [[Security]] - Security best practices
+## Technical
 
-### Community
-- [[FAQ]] - Frequently asked questions
-- [[Troubleshooting]] - Common issues
-- [[Showcase]] - User projects and setups
-- [[Development]] - Contributing to VoidCastFM
+- [[API-Reference|🔌 API]] - REST & WebSocket docs
+- [[Hardware|🔧 Hardware]] - Compatible devices
+- [[Network-Setup|🌐 Network]] - Configuration guide
+- [[Security|🔒 Security]] - Best practices
 
-## Brand Guidelines
+## Community
+
+- [[FAQ|❓ FAQ]] - Common questions
+- [[Troubleshooting|🆘 Help]] - Solve issues
+- [[Showcase|🌟 Projects]] - User setups
+- [[Development|💻 Dev]] - Contributing
+
+## Brand
+
+**VoidCastFM** represents precision RF technology meets modern design.
 
 ### Colors
-- **Primary Cyan**: `#00f5ff` - Main accent color
-- **Electric Purple**: `#8b5cf6` - Secondary accent
+- **Void Cyan**: `#00f5ff` - Primary accent
+- **Electric Purple**: `#8b5cf6` - Secondary accent  
 - **Deep Space**: `#08080f` - Background
-- **Alert Red**: `#ff3c3c` - Warnings and stop actions
+- **Alert Red**: `#ff3c3c` - Warnings
 
 ### Typography
-- **Primary Font**: SF Mono (macOS system)
+- **Font**: SF Mono (system monospace)
 - **Fallback**: JetBrains Mono, Fira Code
 
-### Logo
-The VoidCastFM logo represents radio waves emerging from the void - symbolizing the transmission of signals from emptiness into reality.
+## Links
 
-## Contributing
-
-1. Create a new page using the template below
-2. Follow the [style guide](Style-Guide)
-3. Submit changes via GitHub Issues or Discussions
-
-### Page Template
-```markdown
-# Page Title
-
-Brief description of what this page covers.
-
-## Section 1
-Content here.
-
-## Section 2
-More content.
-
-## See Also
-- [[Related Page 1]]
-- [[Related Page 2]]
-
-## References
-- External links
-- Documentation
-```
-
-## License
-
-Content is available under the same MIT License as the main project unless otherwise noted.
+- [Main Repository](https://github.com/noktirnal42/voidcastfm)
+- [Documentation](https://noktirnal42.github.io/voidcastfm/)
+- [Discussions](https://github.com/noktirnal42/voidcastfm/discussions)
+- [Issues](https://github.com/noktirnal42/voidcastfm/issues)
+- [Releases](https://github.com/noktirnal42/voidcastfm/releases)
 
 ---
 
-**Last Updated:** April 2026  
-**Version:** 1.0.0
+*Last updated: April 2026 | Version: 1.0.0*

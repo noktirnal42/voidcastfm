@@ -7,25 +7,25 @@
 - [[Configuration|⚙️ Configuration]]
 
 ### User Guides
-- [[Transmission-Modes|📡 Transmission Modes]]
-- [[Audio-Streaming|🎤 Audio Streaming]]
-- [[Soundboard|🚨 Soundboard]]
-- [[File-Playback|🎵 File Playback]]
+- [[Transmission-Modes|📡 Modes]]
+- [[Audio-Streaming|🎤 Streaming]]
+- [[Soundboard|🚨 Alerts]]
+- [[File-Playback|🎵 Files]]
 
 ### Technical
-- [[API-Reference|🔌 API Reference]]
+- [[API-Reference|🔌 API]]
 - [[Hardware|🔧 Hardware]]
 - [[Network-Setup|🌐 Network]]
 - [[Security|🔒 Security]]
 
 ### Community
 - [[FAQ|❓ FAQ]]
-- [[Troubleshooting|🆘 Troubleshooting]]
-- [[Showcase|🌟 Showcase]]
-- [[Development|💻 Development]]
+- [[Troubleshooting|🆘 Help]]
+- [[Showcase|🌟 Projects]]
+- [[Development|💻 Dev]]
 
 ### Links
-- [Main Repository](https://github.com/noktirnal42/voidcastfm)
-- [Report Issue](https://github.com/noktirnal42/voidcastfm/issues)
-- [Discussions](https://github.com/noktirnal42/voidcastfm/discussions)
-- [Releases](https://github.com/noktirnal42/voidcastfm/releases)
+- [🌐 Documentation](https://noktirnal42.github.io/voidcastfm/)
+- [💬 Discussions](https://github.com/noktirnal42/voidcastfm/discussions)
+- [🐛 Issues](https://github.com/noktirnal42/voidcastfm/issues)
+- [📦 Releases](https://github.com/noktirnal42/voidcastfm/releases)
